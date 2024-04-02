@@ -1,3 +1,83 @@
+#logo{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: -20px;
+    margin: -40px;
+}
+
 body{
-    #titulo{ text-align: center;}
+    .nav-link {
+        color: green; /* Color del texto */
+    }
+    
+    .nav-link:hover {
+        color: darkgreen; /* Color del texto al pasar el mouse */
+    }
+    
+    .nav-item {
+        margin-right: 15px; /* Espaciado entre elementos */
+    }
+    
+    .navbar-green .nav-link {
+        font-size: 18px; /* Tamaño del texto */
+    }
+    
+    .navbar-green .nav-link:hover {
+        background-color: green; /* Fondo del botón al pasar el mouse */
+        color: white; /* Color del texto al pasar el mouse */
+        border-radius: 5px; /* Bordes redondeados */
+        transition: background-color 0.3s; /* Animación de transición */
+    }
+    
+    
+}
+
+body{
+    .carousel-item img {
+        height: 400px; /* ajusta la altura de las imágenes del carrusel */
+        object-fit: cover;
+        margin: 30px;
+    }
+    
+}
+
+body{
+    .section {
+        display: flex;
+        align-items: center;
+        margin: 100px;
+    }
+    
+    .image-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+    
+    
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .text-container {
+        flex: 2;
+    }
+    
+    .order-button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    
+    .order-button:hover {
+        background-color: darkgreen;
+    }
+
+    
+    
 }
