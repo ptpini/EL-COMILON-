@@ -5,6 +5,8 @@
     margin: -40px;
 }
 
+
+/* color y estilo de la navbar */
 body{
     .nav-link {
         color: green; /* Color del texto */
@@ -32,6 +34,7 @@ body{
     
 }
 
+/* estilo, separacion y adapatacion de carousel */
 body{
     .carousel-item img {
         height: 400px; /* ajusta la altura de las imágenes del carrusel */
@@ -41,6 +44,7 @@ body{
     
 }
 
+/* estilo de "come sano toda la semana" */
 body{
     .section {
         display: flex;
