@@ -39,7 +39,7 @@ body{
     .carousel-item img {
         height: 400px; /* ajusta la altura de las imágenes del carrusel */
         object-fit: cover;
-        margin: 30px;
+        margin: 40px;
     }
     
 }
@@ -48,24 +48,58 @@ body{
 body{
     .section {
         display: flex;
+        justify-content: center;
         align-items: center;
-        margin: 100px;
+    }
+    
+    .text-container {
+        flex: 1;
+        padding: 20px;
+    }
+    
+    .text-container h2 {
+        color: green;
+        font-size: 28px;
+    }
+    
+    .text-container ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .text-container ul li {
+        margin-bottom: 10px;
     }
     
     .image-container {
         flex: 1;
-        margin-right: 20px;
+        padding: 20px;
     }
-    
     
     .image-container img {
         max-width: 100%;
         height: auto;
+        border-radius: 10px;
     }
     
-    .text-container {
-        flex: 2;
+    .order-button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
     }
+    
+    .order-button:hover {
+        background-color: darkgreen;
+    }
+    
+    .green-title {
+        color: green;
+    }
+    
     
     .order-button {
         background-color: green;
