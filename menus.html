@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de EL COMILON</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Alimentos Santiago</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menú</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" onclick="showMenu('comidas-caseras')">Comidas caseras</a>
+                        <a class="dropdown-item" href="#" onclick="showMenu('postres')">Postres</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" onclick="showMenu('bebidas')">Bebidas</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido de la página -->
+    <div class="container">
+        <div id="menu-comidas-caseras" style="display: none;">
+            <h2>Comidas Caseras</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pollo Asado</h5>
+                    <p class="card-text">Pollo asado al horno con papas y vegetales.</p>
+                    <button class="btn btn-primary" onclick="addToCart('Pollo Asado', 10)">Agregar al carrito</button>
+                </div>
+            </div>
+            <!-- Agrega más elementos de menú aquí -->
+        </div>
+        <div id="menu-postres" style="display: none;">
+            <h2>Postres</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tarta de Manzana</h5>
+                    <p class="card-text">Deliciosa tarta de manzana casera.</p>
+                    <button class="btn btn-primary" onclick="addToCart('Tarta de Manzana', 5)">Agregar al carrito</button>
+                </div>
+            </div>
+            <!-- Agrega más elementos de menú aquí -->
+        </div>
+        <div id="menu-bebidas" style="display: none;">
+            <h2>Bebidas</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Jugo de Naranja</h5>
+                    <p class="card-text">Jugo de naranja natural recién exprimido.</p>
+                    <button class="btn btn-primary" onclick="addToCart('Jugo de Naranja', 3)">Agregar al carrito</button>
+                </div>
+            </div>
+            <!-- Agrega más elementos de menú aquí -->
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script personalizado para mostrar menú y agregar al carrito -->
+    <script>
+        function showMenu(menuId) {
+            // Ocultar todos los menús
+            document.querySelectorAll('[id^="menu"]').forEach(menu => {
+                menu.style.display = 'none';
+            });
+            // Mostrar el menú seleccionado
+            document.getElementById(menuId).style.display = 'block';
+        }
+
+        function addToCart(itemName, price) {
+            // Aquí puedes implementar la lógica para agregar al carrito
+            console.log(`Agregado al carrito: ${itemName} - Precio: $${price}`);
+        }
+    </script>
+</body>
+</html>
