@@ -18,31 +18,75 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #4CAF50; /* Color verde */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* Bordes redondeados */
+            color: #ffffff; /* Texto blanco */
         }
         h1 {
-            color: #333;
+            text-align: center;
         }
         p {
             font-size: 16px;
             line-height: 1.5;
-            color: #666;
         }
-        /* agregar mas adelante estilos aqui */
+        .menu-item {
+            margin-bottom: 30px;
+        }
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px; /* Bordes redondeados para las imágenes */
+            height: 200px; /* Altura fija para todas las imágenes */
+            object-fit: cover; /* Escalar la imagen para que se ajuste al contenedor */
+        }
+        .menu-item h2 {
+            margin-top: 10px;
+            color: #ffffff; /* Texto blanco */
+        }
+        .menu-item p {
+            color: #ffffff; /* Texto blanco */
+        }
+        .menu-item .price {
+            font-weight: bold;
+        }
+        .menu-item .btn {
+            margin-top: 10px;
+        }
+        .logo-container img {
+            max-width: 200px; /* Reducir el tamaño del logo */
+            margin-bottom: 20px; /* Agregar margen inferior al logo */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Menú de la Semana - El Comilón</h1>
-        <p>¡Descubre nuestras deliciosas opciones para hoy!</p>
-        <ul>
-            <li>Callos a la madrileña con garbanzos</li>
-            <li>Salsa pesto</li>
-            <li>Trucha albardada rellena de beicon, queso y tiras de pimientos rojos asados</li>
-            <!-- Agrega más platillos del menú aca -->
-        </ul>
-        <p>¡Haz tu pedido ahora y disfruta de una experiencia culinaria única!</p>
+        <div class="logo-container text-center">
+            <img src="img/image-EKZkbHOkk-transformed (2).png" alt="El Comilón">
+        </div>
+        <h1>Menú de la Semana</h1>
+        <div class="menu-item">
+            <img src="img/callos-con-garbanzos-receta-tradicional.jpg" alt="Callos a la madrileña">
+            <h2>Callos a la madrileña con garbanzos</h2>
+            <p>Deliciosos callos con garbanzos en una salsa casera, servidos con pan fresco.</p>
+            <p class="price">Precio: $12.99</p>
+            <button class="btn btn-light">Agregar al carrito</button>
+            <p class="text-muted">¡Oferta especial!</p>
+        </div>
+        <div class="menu-item">
+            <img src="img/salsa pesto.jpg" alt="Salsa pesto">
+            <h2>Salsa pesto</h2>
+            <p>Una salsa fresca y aromática hecha con albahaca, piñones, queso parmesano y aceite de oliva.</p>
+            <p class="price">Precio: $8.99</p>
+            <button class="btn btn-light">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/trucha.jpg" alt="Trucha albardada rellena">
+            <h2>Trucha albardada rellena de beicon, queso y tiras de pimientos rojos asados</h2>
+            <p>Trucha fresca y jugosa rellena de una deliciosa combinación de beicon, queso y pimientos asados.</p>
+            <p class="price">Precio: $15.99</p>
+            <button class="btn btn-light">Agregar al carrito</button>
+            <p class="text-muted">¡Oferta especial!</p>
+        </div>
     </div>
 
     <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
@@ -51,3 +95,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

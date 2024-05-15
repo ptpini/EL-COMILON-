@@ -4,11 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto; /* Ajusta el margen para centrar el contenido */
+            padding: 20px;
+            background-color: #4CAF50; /* Color verde */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* Bordes redondeados */
+            color: #ffffff; /* Texto blanco */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .table {
+            background-color: #ffffff; /* Fondo de la tabla blanco */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+        .table th, .table td {
+            border: none; /* Sin bordes en las celdas */
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 150px; /* Ajusta el tamaño del logo según sea necesario */
+        }
+    </style>
 </head>
 <body>
 
   <div class="container">
+    <div class="logo-container">
+        <img src="img/image-EKZkbHOkk-transformed (2).png" alt="El Comilón">
+    </div>
     <h1>Carrito de Compras</h1>
     <table class="table">
       <thead>
@@ -31,10 +72,12 @@
       </tbody>
     </table>
     <div class="text-center">
-      <button class="btn btn-primary">Realizar Pedido</button>
+      <button class="btn btn-light btn-lg">Realizar Pedido</button>
     </div>
   </div>
 
-  <script src="js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

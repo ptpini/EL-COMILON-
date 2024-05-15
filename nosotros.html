@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alimentos Santiago - Sobre Nosotros</title>
+    <title>El Comilón - Sobre Nosotros</title>
     <style>
         /* Estilos CSS para la página */
         body {
@@ -18,24 +18,67 @@
             padding: 20px;
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 5px solid #4CAF50; /* Borde verde */
+            border-radius: 10px;
         }
         h1 {
             color: #333;
+            text-align: center;
         }
         p {
             font-size: 16px;
             line-height: 1.5;
             color: #666;
         }
+        #image-slider {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #image-slider img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease-in-out;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 200px;
+            border: 5px solid #4CAF50; /* Borde verde */
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo-container">
+            <img src="img/image-EKZkbHOkk-transformed (2).png" alt="El Comilón">
+        </div>
         <h1>¡Bienvenidos a El COMILON!</h1>
-        <p>Somos una empresa con **10 años de experiencia** en el mercado de comida rápida a domicilio. Nuestra misión es ofrecer platos preparados con los mejores ingredientes frescos y caseros.</p>
+        <div id="image-slider">
+            <img src="img/trabajadores rt.jpg" alt="Restaurante El Comilón">
+        </div>
+        <p>Somos una empresa con <strong>10 años de experiencia</strong> en el mercado de comida rápida a domicilio. Nuestra misión es ofrecer platos preparados con los mejores ingredientes frescos y caseros.</p>
         <p>Ubicados en el corazón de la ciudad, en nuestro restaurante "El Comilón", preparamos deliciosas comidas caseras para nuestros clientes. Valoramos la satisfacción de quienes nos eligen y nos esforzamos por brindar un servicio de calidad.</p>
         <p>¿Cómo trabajamos? Atendemos a los trabajadores de empresas cercanas, quienes han apreciado nuestra dedicación a la calidad y autenticidad de nuestros platos. Además, ofrecemos un servicio telefónico para pedidos y entregas a domicilio.</p>
         <p>¡Gracias por confiar en Nosotros!</p>
     </div>
+
+    <script>
+        // Cambiar automáticamente las imágenes cada cierto tiempo
+        const images = ["img/restaurant-in-valkenswaard.jpg", "img/image2.jpg", "img/image3.jpg"];
+        let index = 0;
+        const imageSlider = document.getElementById("image-slider");
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            imageSlider.innerHTML = `<img src="${images[index]}" alt="Restaurante El Comilón">`;
+        }, 5000); // Cambia la imagen cada 5 segundos
+    </script>
 </body>
 </html>
+
