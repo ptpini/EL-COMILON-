@@ -1,90 +1,310 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL COMILON!</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>EL COMILÓN!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-green {
+            background-color: #4CAF50;
+        }
+        .navbar-green .nav-link {
+            color: #ffffff;
+        }
+        .navbar-green .nav-link:hover {
+            color: #ff9800;
+        }
+        .carousel-caption h5 {
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        .carousel-caption p {
+            font-size: 1rem;
+        }
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background-color: #ffffff;
+        }
+        .text-container {
+            flex: 1;
+            min-width: 300px;
+            margin: 20px;
+        }
+        .green-title {
+            color: #4CAF50;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .order-button {
+            background-color: #ff9800;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .order-button:hover {
+            background-color: #ff7f00;
+        }
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            margin: 20px;
+        }
+        .rounded-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .marquee span {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .menu-item {
+            margin-bottom: 30px;
+        }
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item h2 {
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+        .menu-item p {
+            color: #333;
+        }
+        .menu-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+        .menu-item .btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        .menu-item .btn:hover {
+            background-color: #ff9800;
+            color: #ffffff;
+        }
+        .steps-section {
+            background-color: #e8f5e9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .steps-section h2 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .steps-section .step {
+            flex: 1;
+            margin: 20px;
+        }
+        .steps-section .step img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .steps-section .step p {
+            color: #333;
+        }
+        .steps-section .btn-order {
+            background-color: #ff9800;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .steps-section .btn-order:hover {
+            background-color: #ff7f00;
+        }
+        .available {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-
-  <div id="logo">
-    <a href="home.html">
-        <img src="img/image-EKZkbHOkk-transformed (2).png" alt="logo" width="300px">
-    </a>
-
-  <ul class="nav navbar-green justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Menus</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Menu de la Semana</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Sobre Nosotros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Login</a>
-    </li>
-  </ul>
-
-
-  
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/comida preparada 2.jpg" class="d-block w-100" alt="food1">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Come sano con nosotros</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/comida preparada3.webp" class="d-block w-100" alt="food2">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Con amor hacia tu hogar</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/comida preparada11.jpg" class="d-block w-100" alt="food3">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
+    <!-- Logo y navegación -->
+    <div class="text-center py-3">
+        <a href="home.html">
+            <img src="img/image-EKZkbHOkk-transformed (2).png" alt="El Comilón" width="300px">
+        </a>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+    <ul class="nav navbar-green justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="menus.html">Menus</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="menuweek.html">Menu de la Semana</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="nosotros.html">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="cart.html">Carrito de Compras</a>
+        </li>
+    </ul>
 
-  <div class="section">
-    <div class="text-container">
-        <h2 class="green-title">COME SANO TODA LA SEMANA</h2>
-        <ul>
-            <li>Envíos a toda la Region</li>
-            <li>Sin suscripciones, sin compromisos.</li>
-            <li>Tu comida de la semana en una entrega</li>
-            <li>Sin cocinar, sin limpiar… ¡Listo en minutos!</li>
-        </ul>
-        <button class="order-button">HAZ YA TU PEDIDO</button>
+    <!-- Marquee -->
+    <div class="marquee">
+        <span>¡Descuentos especiales toda la semana! | Envíos rápidos y seguros a toda la región | ¡Ordena ya tu comida favorita!</span>
     </div>
-    <div class="image-container">
-        <img src="img/haz tu pedido ya.jpg" alt="Imagen" class="rounded-image">
+
+    <!-- Carrusel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/cenital-mesa-platos-knoweats.webp" class="d-block w-100" alt="food1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Come sano con nosotros</h5>
+                    <p>Disfruta de platos saludables preparados con los mejores ingredientes.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/comida preparada3.webp" class="d-block w-100" alt="food2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Con amor hacia tu hogar</h5>
+                    <p>La comida hecha con amor llega directamente a tu puerta.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/comida preparada11.jpg" class="d-block w-100" alt="food3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Delicias para todos los gustos</h5>
+                    <p>Descubre nuestra variedad de platos diseñados para todos los paladares.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-</div>
 
+    <!-- Sección de Pasos -->
+    <div class="steps-section">
+        <h2>Come bien en tres pasos</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 step">
+                <img src="img/elige.png" alt="Elige">
+                <h3>1. Elige</h3>
+                <p>Nuestros chefs cocinan para ti, una carta nueva cada semana.</p>
+            </div>
+            <div class="col-md-4 step">
+                <img src="img/recibe.png" alt="Recibe">
+                <h3>2. Recibe</h3>
+                <p>Te lo enviamos a domicilio en transporte refrigerado.</p>
+            </div>
+            <div class="col-md-4 step">
+                <img src="img/calienta.png" alt="Calienta">
+                <h3>3. Calienta</h3>
+                <p>Tu comida aguantará 8 días en tu nevera y la tendrás lista en 3 minutos.</p>
+            </div>
+        </div>
+        <button class="btn-order mt-4" onclick="window.location.href='menus.html'">¡A COMER SANO!</button>
+    </div>
 
+    <!-- Sección de contenido -->
+    <div class="section">
+        <div class="text-container">
+            <h2 class="green-title">Descubre la Comida Saludable</h2>
+            <ul>
+                <li>Platos deliciosos y nutritivos</li>
+                <li>Envío rápido y seguro a toda la región</li>
+                <li>Ingredientes frescos y de calidad</li>
+                <li>Planes personalizados para ti</li>
+            </ul>
+            <button class="order-button" onclick="window.location.href='menus.html'">Ordena Ahora</button>
+        </div>
+        <div class="image-container">
+            <img src="img/trabajadores rt.jpg" alt="Comida Saludable" class="rounded-image">
+        </div>
+    </div>
 
+    <!-- Menú de la Semana -->
+    <div class="container mt-5">
+        <h2 class="text-center green-title">Tienes que probar</h2>
+        <div class="row">
+            <div class="col-md-3 menu-item">
+                <img src="img/pollo asadooo.png" alt="Plato 1">
+                <span class="badge badge-success">Disponible</span>
+                <h2>Pavo en salsa a la pimienta verde</h2>
+                <p>(450g)</p>
+                <p class="price">7,50$</p>
+                <button class="btn btn-success">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-3 menu-item">
+                <img src="img/fideua.png" alt="Plato 2">
+                <span class="badge badge-success">Disponible</span>
+                <h2>Fideuá de rape y gamba</h2>
+                <p>(420g)</p>
+                <p class="price">6,75$</p>
+                <button class="btn btn-success">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-3 menu-item">
+                <img src="img/pollo asadooo.png" alt="Plato 3">
+                <span class="badge badge-success">Disponible</span>
+                <h2>Pollo con salsa chipotle</h2>
+                <p>(450g)</p>
+                <p class="price">7,25$</p>
+                <button class="btn btn-success">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-3 menu-item">
+                <img src="img/albonidgas.png" alt="Plato 4">
+                <span class="badge badge-success">Disponible</span>
+                <h2>Albóndigas en salsa con patata</h2>
+                <p>(450g)</p>
+                <p class="price">7,25$</p>
+                <button class="btn btn-success">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
 
-
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
