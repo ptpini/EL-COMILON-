@@ -7,5 +7,5 @@ urlpatterns = [
     path('menuweek/', views.menuweek, name='menuweek'),
     path('nosotros/', views.nosotros, name='nosotros'),
     path('login/', views.login, name='login'),
-    path('cart/', views.cart, name='cart'),
+    path('cart/', views.cart, name='cart'),  # Añadir esta línea
 ]

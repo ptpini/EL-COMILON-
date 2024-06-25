@@ -16,4 +16,4 @@ def login(request):
     return render(request, 'Comilon/login.html')
 
 def cart(request):
-    return render(request, 'Comilon/cart.html')
+    return render(request, 'Comilon/cart.html')  
