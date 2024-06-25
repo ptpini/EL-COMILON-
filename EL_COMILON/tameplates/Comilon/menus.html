@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - EL COMILÓN!</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-green {
+            background-color: #4CAF50;
+        }
+        .navbar-green .nav-link {
+            color: #ffffff;
+        }
+        .navbar-green .nav-link:hover {
+            color: #ff9800;
+        }
+        .menu-section {
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        .menu-section h2 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .menu-item {
+            margin-bottom: 30px;
+        }
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item h2 {
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+        .menu-item p {
+            color: #333;
+        }
+        .menu-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+        .menu-item .btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        .menu-item .btn:hover {
+            background-color: #ff9800;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo y navegación -->
+    <div class="text-center py-3">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón" width="300px">
+        </a>
+    </div>
+    <ul class="nav navbar-green justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'menus' %}">Menus</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'menuweek' %}">Menu de la Semana</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'nosotros' %}">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'cart' %}">Carrito de Compras</a>
+        </li>
+    </ul>
+
+    <!-- Sección de Platos Principales -->
+    <div class="menu-section">
+        <h2>Platos Principales</h2>
+        <div class="row">
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/pavo.png' %}" alt="Pavo en salsa a la pimienta verde">
+                <h2>Pavo en salsa a la pimienta verde</h2>
+                <p>(450g)</p>
+                <p class="price">7,50€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Pavo en salsa a la pimienta verde', 7.50)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/fideua.png' %}" alt="Fideuá de rape y gamba">
+                <h2>Fideuá de rape y gamba</h2>
+                <p>(420g)</p>
+                <p class="price">6,75€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Fideuá de rape y gamba', 6.75)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/pollo asadooo.png' %}" alt="Pollo con salsa chipotle">
+                <h2>Pollo con salsa chipotle</h2>
+                <p>(450g)</p>
+                <p class="price">7,25€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Pollo con salsa chipotle', 7.25)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Platos Veganos -->
+    <div class="menu-section">
+        <h2>Platos Veganos</h2>
+        <div class="row">
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/ensalada-de-quinoa.webp' %}" alt="Ensalada de quinoa">
+                <h2>Ensalada de quinoa</h2>
+                <p>(400g)</p>
+                <p class="price">6,50€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Ensalada de quinoa', 6.50)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/tofu-_QC0JBexvibq23ujlzMW756t4P8aXSA-1024x683.png.webp' %}" alt="Tofu a la plancha">
+                <h2>Tofu a la plancha</h2>
+                <p>(420g)</p>
+                <p class="price">7,00€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Tofu a la plancha', 7.00)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/hamburvegana.jpg' %}" alt="Hamburguesa vegana">
+                <h2>Hamburguesa vegana</h2>
+                <p>(450g)</p>
+                <p class="price">7,50€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Hamburguesa vegana', 7.50)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Postres -->
+    <div class="menu-section">
+        <h2>Postres</h2>
+        <div class="row">
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/tartadequeso.jpeg' %}" alt="Tarta de queso">
+                <h2>Tarta de queso</h2>
+                <p>(150g)</p>
+                <p class="price">4,00€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Tarta de queso', 4.00)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/ac5fa47c04dd-brownie-de-chocolate-negro.avif' %}" alt="Brownie de chocolate">
+                <h2>Brownie de chocolate</h2>
+                <p>(120g)</p>
+                <p class="price">3,50€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Brownie de chocolate', 3.50)">Agregar al Carrito</button>
+            </div>
+            <div class="col-md-4 menu-item">
+                <img src="{% static 'img/helado-vegano-casero.jpg' %}" alt="Helado vegano">
+                <h2>Helado vegano</h2>
+                <p>(200g)</p>
+                <p class="price">5,00€</p>
+                <button class="btn btn-success" onclick="agregarAlCarrito('Helado vegano', 5.00)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Script para agregar al carrito -->
+    <script>
+        function agregarAlCarrito(nombre, precio) {
+            alert(`Añadiste ${nombre} al carrito por ${precio}€`);
+            // Aquí puedes agregar la funcionalidad para agregar el producto al carrito de compras
+        }
+    </script>
+</body>
+</html>
