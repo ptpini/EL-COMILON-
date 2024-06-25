@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 def home(request):
     return render(request, 'Comilon/home.html')
@@ -12,8 +14,17 @@ def menuweek(request):
 def nosotros(request):
     return render(request, 'Comilon/nosotros.html')
 
-def login(request):
-    return render(request, 'Comilon/login.html')
-
 def cart(request):
-    return render(request, 'Comilon/cart.html')  
+    return render(request, 'Comilon/cart.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos')
+    return render(request, 'Comilon/login.html')
