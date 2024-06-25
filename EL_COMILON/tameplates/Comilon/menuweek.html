@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de la semana - El Comilón</title>
+    <!-- Enlace a Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Estilos personalizados  -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .menu-item {
+            margin-bottom: 30px;
+            background-color: #4CAF50;
+            padding: 15px;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item h2 {
+            margin-top: 10px;
+            color: #ffffff;
+        }
+        .menu-item p {
+            color: #ffffff;
+        }
+        .menu-item .price {
+            font-weight: bold;
+        }
+        .menu-item .btn {
+            margin-top: 10px;
+            background-color: #ff9800;
+            border-color: #ff9800;
+        }
+        .logo-container img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .text-muted {
+            color: #f9f9f9 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container text-center">
+            <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
+        </div>
+        <h1>Menú de la Semana</h1>
+        <div class="menu-item">
+            <img src="{% static 'img/callos-con-garbanzos-receta-tradicional.jpg' %}" alt="Callos a la madrileña">
+            <h2>Callos a la madrileña con garbanzos</h2>
+            <p>Deliciosos callos con garbanzos en una salsa casera, servidos con pan fresco.</p>
+            <p class="price">Precio: $12.99</p>
+            <button class="btn btn-light add-to-cart" data-product="Callos a la madrileña con garbanzos" data-price="12.99">Agregar al carrito</button>
+            <p class="text-muted">¡Oferta especial!</p>
+        </div>
+        <div class="menu-item">
+            <img src="{% static 'img/salsa pesto.jpg' %}" alt="Salsa pesto">
+            <h2>Salsa pesto</h2>
+            <p>Una salsa fresca y aromática hecha con albahaca, piñones, queso parmesano y aceite de oliva.</p>
+            <p class="price">Precio: $8.99</p>
+            <button class="btn btn-light add-to-cart" data-product="Salsa pesto" data-price="8.99">Agregar al carrito</button>
+        </div>
+        <div class="menu-item">
+            <img src="{% static 'img/trucha.jpg' %}" alt="Trucha albardada rellena">
+            <h2>Trucha albardada rellena de beicon, queso y tiras de pimientos rojos asados</h2>
+            <p>Trucha fresca y jugosa rellena de una deliciosa combinación de beicon, queso y pimientos asados.</p>
+            <p class="price">Precio: $15.99</p>
+            <button class="btn btn-light add-to-cart" data-product="Trucha albardada rellena" data-price="15.99">Agregar al carrito</button>
+            <p class="text-muted">¡Oferta especial!</p>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Simulación de carrito
+        let cart = [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                const price = parseFloat(this.getAttribute('data-price'));
+                cart.push({ product, price });
+                alert(`${product} ha sido agregado al carrito.`);
+                console.log(cart); // Para verificar los elementos del carrito en la consola
+            });
+        });
+    </script>
+</body>
+</html>
