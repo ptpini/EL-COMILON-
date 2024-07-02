@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Comilón - Sobre Nosotros</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <style>
         /* Estilos CSS para la página */
@@ -58,9 +59,11 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
+            </a>
         </div>
-        <h1>¡Bienvenidos a El COMILÓN!</h1>
+        <h1>¡Bienvenidos a El COMILON!</h1>
         <div id="image-slider">
             <img src="{% static 'img/trabajadores rt.jpg' %}" alt="Restaurante El Comilón">
         </div>
@@ -72,11 +75,7 @@
 
     <script>
         // Cambiar automáticamente las imágenes cada cierto tiempo
-        const images = [
-            "{% static 'img/restaurant-in-valkenswaard.jpg' %}",
-            "{% static 'img/image2.jpg' %}",
-            "{% static 'img/image3.jpg' %}"
-        ];
+        const images = ["{% static 'img/restaurant-in-valkenswaard.jpg' %}", "{% static 'img/image2.jpg' %}", "{% static 'img/image3.jpg' %}"];
         let index = 0;
         const imageSlider = document.getElementById("image-slider");
         setInterval(() => {

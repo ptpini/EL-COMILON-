@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - El Comilón</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos personalizados (puedes agregar más) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto; /* Ajusta el margen para centrar el formulario */
+            padding: 20px;
+            background-color: #4CAF50; /* Color verde */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* Bordes redondeados */
+        }
+        h1 {
+            color: #ffffff; /* Texto blanco */
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
+            </a>
+        </div>
+        <h1>El Comilón</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Usuario</label>
+                <input type="text" name="username" class="form-control" id="id_username" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password">Contraseña</label>
+                <input type="password" name="password" class="form-control" id="id_password" required>
+            </div>
+            <button type="submit" class="btn btn-light">Ingresar</button>
+        </form>
+    </div>
+
+    <!-- Scripts de Bootstrap (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

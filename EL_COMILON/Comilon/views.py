@@ -1,64 +1,41 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib import messages
-from django.core.mail import send_mail
-from django.conf import settings
-from .models import MenuItem, Review
+from .models import Product, CartItem
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'Comilon/home.html')
 
 def menus(request):
-    return render(request, 'Comilon/menus.html')
+    products = Product.objects.all()
+    return render(request, 'Comilon/menus.html', {'products': products})
 
-def menuweek(request):
-    return render(request, 'Comilon/menuweek.html')
+def menu_week(request):
+    products = Product.objects.filter(week_special=True)
+    return render(request, 'Comilon/menuweek.html', {'products': products})
 
 def nosotros(request):
     return render(request, 'Comilon/nosotros.html')
 
-def cart(request):
-    return render(request, 'Comilon/cart.html')
-
 def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.error(request, 'Usuario o contraseña incorrectos')
-    return render(request, 'Comilon/login.html')
+    return render(request, 'registration/login.html')
 
-def contact(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        message = request.POST['message']
-        send_mail(
-            f'Mensaje de {name} ({email})',
-            message,
-            settings.EMAIL_HOST_USER,
-            ['your_email@example.com'],  # Reemplaza con tu dirección de correo
-            fail_silently=False,
-        )
-        messages.success(request, 'Mensaje enviado con éxito.')
-        return redirect('contact')
-    return render(request, 'Comilon/contact.html')
+@login_required
+def cart(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    total = sum(item.product.price * item.quantity for item in cart_items)
+    return render(request, 'Comilon/cart.html', {'cart_items': cart_items, 'total': total})
 
-def search(request):
-    query = request.GET.get('query')
-    results = MenuItem.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
-    return render(request, 'Comilon/search_results.html', {'results': results, 'query': query})
+@login_required
+def add_to_cart(request, product_id):
+    product = Product.objects.get(id=product_id)
+    cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('cart')
 
-def review(request):
-    if request.method == 'POST':
-        rating = request.POST['rating']
-        comment = request.POST['comment']
-        review = Review(rating=rating, comment=comment)
-        review.save()
-        messages.success(request, 'Reseña enviada con éxito.')
-        return redirect('review')
-    return render(request, 'Comilon/review.html')
+@login_required
+def remove_from_cart(request, cart_item_id):
+    cart_item = CartItem.objects.get(id=cart_item_id)
+    cart_item.delete()
+    return redirect('cart')

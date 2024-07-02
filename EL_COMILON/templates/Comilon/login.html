@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - El Comilón</title>
     <!-- Enlace a Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Estilos personalizados (puedes agregar más) -->
     <style>
         body {
@@ -45,20 +45,19 @@
 <body>
     <div class="container">
         <div class="logo">
-            <a href="{% url 'home' %}">
-                <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
-            </a>
+            <img src="img/image-EKZkbHOkk-transformed (2).png" alt="El Comilón" onclick="redirectToHome()">
         </div>
         <h1>El Comilón</h1>
-        <form method="POST">
-            {% csrf_token %}
+        <form id="loginForm" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="username">Usuario</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                <input type="text" class="form-control" id="username" placeholder="Ingresa tu usuario">
+                <div class="invalid-feedback">Por favor, ingresa tu usuario.</div>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                <div class="invalid-feedback">Por favor, ingresa tu contraseña.</div>
             </div>
             <button type="submit" class="btn btn-light">Ingresar</button>
         </form>
@@ -68,5 +67,33 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function redirectToHome() {
+            window.location.href = 'home.html';
+        }
+
+        function validateForm() {
+            const username = document.getElementById('username');
+            const password = document.getElementById('password');
+            let isValid = true;
+
+            if (username.value.trim() === '') {
+                username.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                username.classList.remove('is-invalid');
+            }
+
+            if (password.value.trim() === '') {
+                password.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                password.classList.remove('is-invalid');
+            }
+
+            return isValid;
+        }
+    </script>
 </body>
 </html>

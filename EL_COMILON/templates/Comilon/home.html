@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Comilón</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-green {
+            background-color: #4CAF50;
+        }
+        .navbar-green .nav-link {
+            color: #ffffff;
+        }
+        .navbar-green .nav-link:hover {
+            color: #ff9800;
+        }
+        .header-section {
+            background-color: #e8f5e9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header-section h1 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+        }
+        .header-section p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .steps-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 20px;
+            background-color: #ffffff;
+        }
+        .step {
+            text-align: center;
+            width: 30%;
+        }
+        .step img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .step h3 {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+        .step p {
+            color: #333;
+        }
+        .menu-section {
+            padding: 40px 20px;
+            background-color: #f1f1f1;
+        }
+        .menu-section h2 {
+            color: #4CAF50;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .menu-item {
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item h3 {
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+        .menu-item p {
+            color: #333;
+        }
+        .menu-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+        .menu-item .btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        .menu-item .btn:hover {
+            background-color: #ff9800;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo y navegación -->
+    <nav class="navbar navbar-expand-lg navbar-green">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón" width="150px">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menus' %}">Menús</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menuweek' %}">Menú de la Semana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nosotros' %}">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">Carrito de Compras</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de encabezado -->
+    <div class="header-section">
+        <h1>Come sano toda la semana</h1>
+        <p>Envíos rápidos y seguros a toda la región</p>
+        <button class="btn btn-warning">Haz tu Pedido</button>
+    </div>
+
+    <!-- Sección de pasos -->
+    <div class="steps-section">
+        <div class="step">
+            <img src="{% static 'img/elige.png' %}" alt="Elige">
+            <h3>1. Elige</h3>
+            <p>Nuestros chefs cocinan para ti, una carta nueva cada semana.</p>
+        </div>
+        <div class="step">
+            <img src="{% static 'img/recibe.png' %}" alt="Recibe">
+            <h3>2. Recibe</h3>
+            <p>Te lo enviamos a domicilio en transporte refrigerado.</p>
+        </div>
+        <div class="step">
+            <img src="{% static 'img/calienta.png' %}" alt="Calienta">
+            <h3>3. Calienta</h3>
+            <p>Tu comida aguantará 8 días en tu nevera y la tendrás lista en 3 minutos.</p>
+        </div>
+    </div>
+
+    <!-- Sección de menú -->
+    <div class="menu-section">
+        <h2>Tienes que probar</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="menu-item">
+                    <img src="{% static 'img/pollo_asado.png' %}" alt="Pavo en salsa a la pimienta verde">
+                    <h3>Pavo en salsa a la pimienta verde</h3>
+                    <p>(450g)</p>
+                    <p class="price">7,50$</p>
+                    <button class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="menu-item">
+                    <img src="{% static 'img/fideua.png' %}" alt="Fideuá de rape y gamba">
+                    <h3>Fideuá de rape y gamba</h3>
+                    <p>(420g)</p>
+                    <p class="price">6,75$</p>
+                    <button class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="menu-item">
+                    <img src="{% static 'img/albondigas.png' %}" alt="Pollo con salsa chipotle">
+                    <h3>Pollo con salsa chipotle</h3>
+                    <p>(450g)</p>
+                    <p class="price">7,25$</p>
+                    <button class="btn btn-success">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
