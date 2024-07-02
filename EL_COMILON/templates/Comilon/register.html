@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - El Comilón</title>
+    <title>Registrarse - El Comilón</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -21,7 +21,7 @@
             align-items: center;
             height: 100vh;
         }
-        .login-container {
+        .register-container {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
@@ -30,11 +30,11 @@
             width: 100%;
             max-width: 400px;
         }
-        .login-container img {
+        .register-container img {
             max-width: 150px;
             margin-bottom: 20px;
         }
-        .login-container h1 {
+        .register-container h1 {
             color: #4CAF50;
             margin-bottom: 20px;
         }
@@ -45,7 +45,7 @@
             background-color: #ff9800;
             border-color: #ff9800;
         }
-        .btn-register {
+        .btn-login {
             display: block;
             width: 100%;
             margin-top: 10px;
@@ -56,33 +56,20 @@
             border-radius: 5px;
             text-decoration: none;
         }
-        .forgot-password {
-            display: block;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="register-container">
         <a href="{% url 'home' %}">
             <img src="{% static 'img/image-EKZkbHOkk-transformed (2).png' %}" alt="El Comilón">
         </a>
-        <h1>Iniciar Sesión</h1>
-        <p>Introduce tu cuenta de El Comilón o regístrate si es tu primera vez.</p>
+        <h1>Crear Cuenta</h1>
         <form method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="username">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
         </form>
-        <a href="{% url 'register' %}" class="btn-register">Crear cuenta</a>
+        <a href="{% url 'login' %}" class="btn-login">Ya tengo una cuenta</a>
     </div>
 </body>
 </html>
